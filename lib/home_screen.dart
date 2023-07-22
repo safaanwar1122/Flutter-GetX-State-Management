@@ -1,5 +1,9 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_getx_playlist/counter_controller.dart';
 import 'package:flutter_getx_playlist/screen_one.dart';
+import 'package:flutter_getx_playlist/slider_example.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
@@ -11,35 +15,45 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  //dependency injection
+  SliderExampleController sliderExampleController=Get.put(SliderExampleController());
+
+
+    @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    final height=MediaQuery.of(context).size.height*1;
+    print('rebuild');
     return Scaffold(
       appBar: AppBar(
         title: Text('GetX Tutorialsl'),
       ),
-      body: Column(
+      body:Column(
         children: [
-          Container(
-           //height: MediaQuery.of(context).size.height*.4,
-            height: Get.height*.4,
-            width: Get.width*.8,
-            color: Colors.red,
-            child: Center(
-              child: Text('Center'),
-            ),
-          ),
+          Obx(
+          ()=> Container(
+              height: 200,
+              width: 200,
+              color: Colors.red.withOpacity(sliderExampleController.opacit.value),
 
-          Container(
-            //height: MediaQuery.of(context).size.height*.4,
-            height: Get.height*.1,
-            width: Get.width*.8,
-            color: Colors.green,
-            child: Center(
-              child: Text('Center'),
             ),
           ),
+          Obx(
+          ()=> Slider(value: sliderExampleController.opacit.value, onChanged: (value){
+            sliderExampleController.setOpacity(value);
+
+            }),
+          )
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+
+        },
       ),
     );
   }

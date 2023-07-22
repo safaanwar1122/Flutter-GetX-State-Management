@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_getx_playlist/languages.dart';
 import 'package:flutter_getx_playlist/screen_one.dart';
 import 'package:flutter_getx_playlist/screen_two.dart';
 import 'package:get/get.dart';
@@ -17,6 +18,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'Flutter Demo',
+     // locale: Locale('en','US'),
+      fallbackLocale: Locale('en','US'),
+      translations: Languages(),
+      locale: Locale('en','US'),
       theme: ThemeData(
 
        primarySwatch: Colors.blue,
