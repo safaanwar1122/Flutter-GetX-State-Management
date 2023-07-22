@@ -13,30 +13,32 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    final height=MediaQuery.of(context).size.height*1;
     return Scaffold(
       appBar: AppBar(
-        title: Text('GetX , home screen'),
+        title: Text('GetX Tutorialsl'),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          TextButton(
-              onPressed: () {
-                //Get.to(ScreenOne(name: 'Safa Anwar',));
-                Get.toNamed('/screenOne',arguments:
-                [
-                  'Safa Anwar',
-                  'I am software engineering student',
-                  '3rd',
-                ]
-                );
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(builder: (context) => ScreenOne()),
-                // );
-              },
-              child: Center(child: Text('Go to next screen '))),
+          Container(
+           //height: MediaQuery.of(context).size.height*.4,
+            height: Get.height*.4,
+            width: Get.width*.8,
+            color: Colors.red,
+            child: Center(
+              child: Text('Center'),
+            ),
+          ),
+
+          Container(
+            //height: MediaQuery.of(context).size.height*.4,
+            height: Get.height*.1,
+            width: Get.width*.8,
+            color: Colors.green,
+            child: Center(
+              child: Text('Center'),
+            ),
+          ),
         ],
       ),
     );
