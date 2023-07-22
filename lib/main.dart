@@ -5,6 +5,7 @@ import 'package:flutter_getx_playlist/screen_two.dart';
 import 'package:get/get.dart';
 
 import 'home_screen.dart';
+import 'image_picker_home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
        primarySwatch: Colors.blue,
         useMaterial3: true,
       ),
-      home: const HomeScreen(),
+      home: const ImagePickerHome(),
 
       // below lines are for routing
       // getPages: [
